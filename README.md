@@ -1,2 +1,2 @@
 # ember
-SparkXP's Roblox API wrapper and handler
+SparkXP's lightweight Roblox API wrapper and handler
