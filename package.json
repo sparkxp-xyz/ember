@@ -1,0 +1,20 @@
+{
+  "name": "ember",
+  "version": "1.0.0",
+  "description": "SparkXP's lightweight Roblox API wrapper",
+  "homepage": "https://github.com/sparkxp-xyz/ember#readme",
+  "bugs": {
+    "url": "https://github.com/sparkxp-xyz/ember/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sparkxp-xyz/ember.git"
+  },
+  "license": "MIT",
+  "author": "Hawaii Interactive",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
