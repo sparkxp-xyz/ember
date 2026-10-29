@@ -9,8 +9,8 @@ const rankings = require('./api/rankings');
 class Ember {
   /**
    * @param {object} [opts]
-   * @param {string} [opts.cookie] .ROBLOSECURITY value
-   * @param {string} [opts.apiKey] Open Cloud API key
+   * @param {string} [opts.cookie] 
+   * @param {string} [opts.apiKey] 
    * @param {number} [opts.maxRetries]
    */
   constructor({ cookie, apiKey, maxRetries, fetchFn } = {}) {
@@ -26,7 +26,6 @@ class Ember {
     if (cookie) this._cookie = sanitizeCookie(cookie);
   }
 
-  // ---- cookie operations ----
   getCookie() { return this._cookie; }
 
   clearCookie() {
@@ -35,7 +34,6 @@ class Ember {
     this.http.csrf.token = null;
   }
 
-  /** Sets and validates the cookie, like noblox.setCookie. Returns the logged-in user. */
   async setCookie(cookie, { validate = true } = {}) {
     const previous = this._cookie;
     this._cookie = sanitizeCookie(cookie);
@@ -52,7 +50,6 @@ class Ember {
 
   validateCookie() { return this.auth.validate(); }
 
-  /** Rotates the cookie via an auth ticket; the old one is invalidated by Roblox. */
   async refreshCookie() {
     const fresh = await this.auth.refresh();
     this._cookie = fresh;
@@ -60,7 +57,6 @@ class Ember {
     return fresh;
   }
 
-  // ---- noblox-style shortcuts ----
   async getCurrentUser() { return this.currentUser || (this.currentUser = await this.auth.getAuthenticatedUser()); }
   getAuthenticatedUser() { return this.auth.getAuthenticatedUser(); }
   getUserInfo(id) { return this.users.getUserInfo(id); }
