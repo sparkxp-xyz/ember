@@ -1,0 +1,12 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^foreach\\(\\$f in 'package\\.json','README\\.md','src\\\\index\\.js','src\\\\client\\.js','src\\\\http\\\\request\\.js','src\\\\http\\\\errors\\.js','src\\\\http\\\\csrf\\.js','src\\\\auth\\\\cookie\\.js','src\\\\auth\\\\opencloud\\.js','src\\\\api\\\\groups\\.js','src\\\\api\\\\users\\.js','src\\\\api\\\\thumbnails\\.js','src\\\\api\\\\rankings\\.js'\\)\\{ \"=== \\$f\"; Get-Content \\$f \\}; git log --oneline \\| select -first 5$/": {
+            "approve": true,
+            "matchCommandLine": true
+        },
+        "/^npm test 2>&1 \\| select -last 20$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
