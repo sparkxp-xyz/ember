@@ -1,6 +1,5 @@
 const { EmberError } = require('../http/errors');
 
-/** Rank helpers (noblox-style: rank numbers 0-255) built on the groups API. */
 module.exports = (groups) => {
   async function roleByRank(groupId, rank) {
     const role = (await groups.getRoles(groupId)).find((r) => r.rank === Number(rank));
