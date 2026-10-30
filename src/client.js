@@ -1,5 +1,6 @@
 const { Requester } = require('./http/request');
 const { CookieAuth, sanitizeCookie } = require('./auth/cookie');
+const { AuthError } = require('./http/errors');
 const { OpenCloud } = require('./auth/opencloud');
 const users = require('./api/users');
 const groups = require('./api/groups');
@@ -47,6 +48,26 @@ class Ember {
       throw e;
     }
   }
+
+  /**
+   * One-call login. Cleans up and validates the cookie, then returns the logged-in user.
+   * With no argument it reads the ROBLOSECURITY environment variable.
+   */
+  login(cookie = process.env.ROBLOSECURITY) {
+    if (!cookie) throw new AuthError('No cookie provided. Pass one to login() or set ROBLOSECURITY.');
+    return this.setCookie(cookie);
+  }
+
+  /** `const ember = await Ember.login(cookie)` creates a client and logs in. */
+  static async login(cookie, opts) {
+    const ember = new Ember(opts);
+    await ember.login(cookie);
+    return ember;
+  }
+
+  get loggedIn() { return !!this._cookie; }
+
+  logout() { this.clearCookie(); }
 
   validateCookie() { return this.auth.validate(); }
 

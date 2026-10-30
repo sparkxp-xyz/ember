@@ -1,5 +1,5 @@
 {
-  "name": "ember",
+  "name": "ember-roblox",
   "version": "1.0.0",
   "description": "SparkXP's lightweight Roblox API wrapper",
   "homepage": "https://github.com/sparkxp-xyz/ember#readme",
@@ -14,8 +14,19 @@
   "author": "Hawaii Interactive",
   "type": "commonjs",
   "main": "src/index.js",
-  "engines": { "node": ">=18" },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "test": "node --test"
+  },
+  "files": [
+    "src/"
+  ],
+  "dependencies": {
+    "ember-roblox": "file:"
   }
 }
